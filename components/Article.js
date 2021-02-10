@@ -141,7 +141,22 @@ function articleMaker (article) {
 
   const expandButtonElement = document.createElement('span');
   expandButtonElement.textContent = '+';
+  expandButtonElement.addEventListener('click', _ => articleElement.classList.toggle('article-open'));
   expandButtonElement.classList.add('expandButton');
+  articleElement.append(expandButtonElement);
 
   return articleElement;
 }
+
+data.push({
+  title: 'Look, a new article!',
+  date: 'February 10, 2021',
+  firstParagraph: 'It has content!',
+  secondParagraph: 'Multiple paragraphs even!',
+  thirdParagraph: 'Wow.'
+});
+
+articlesDiv = document.querySelector('.articles')
+data.forEach(article => {
+  articlesDiv.append(articleMaker(article));
+});
